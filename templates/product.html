@@ -1,0 +1,140 @@
+{% extends "base.html" %} {% block content %}
+
+<!--Main layout-->
+<main class="mt-5 pt-4">
+  <div class="container dark-grey-text mt-5">
+    <!--Grid row-->
+    <div class="row wow fadeIn">
+      <!--Grid column-->
+      <div class="col-md-6 mb-4">
+        {% if object.image %}
+        <img src="{{ object.image.url }}" class="img-fluid" alt="" />
+        {% elif not object.image and object.imgsrc %}
+        <img src="{{ object.imgsrc }}" class="img-fluid" alt="" />
+        {% else %} {% endif %}
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-md-6 mb-4">
+        <!--Content-->
+        <div class="p-4">
+          <div class="mb-3">
+            <a href="">
+              <span class="badge purple mr-1"
+                >{{ object.get_category_display }}</span
+              >
+            </a>
+          </div>
+
+          <p class="lead">
+            {% if object.discount_price %}
+            <span class="mr-1">
+              <del>${{ object.price }}</del>
+            </span>
+            <span>${{ object.discount_price }}</span>
+            {% else %}
+            <span>${{ object.price }}</span>
+            {% endif %}
+          </p>
+
+          <p class="lead font-weight-bold">{{ object.title }}</p>
+
+          <p>
+            {{ object.description }}
+          </p>
+
+          {% comment %}
+          <form class="d-flex justify-content-left">
+            <!-- Default input -->
+            <input
+              type="number"
+              value="1"
+              aria-label="Search"
+              class="form-control"
+              style="width: 100px;"
+            />
+            <button class="btn btn-primary btn-md my-0 p" type="submit">
+              Add to cart
+              <i class="fas fa-shopping-cart ml-1"></i>
+            </button>
+          </form>
+          {% endcomment %}
+          <a
+            href="{{ object.get_add_to_cart_url }}"
+            class="btn btn-primary btn-md mb-2 p"
+          >
+            Add to cart
+            <i class="fas fa-shopping-cart ml-1"></i>
+          </a>
+          <a
+            href="{{ object.get_remove_from_cart_url }}"
+            class="btn btn-danger btn-md my-0 p"
+          >
+            Remove from cart
+            <i class="fas fa-trash-alt ml-1"></i>
+          </a>
+        </div>
+        <!--Content-->
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+
+    <hr />
+
+    <!--Grid row-->
+    <div class="row d-flex justify-content-center wow fadeIn">
+      <!--Grid column-->
+      <div class="col-md-6 text-center">
+        <h4 class="my-4 h4">Additional information</h4>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
+          suscipit modi sapiente illo soluta odit voluptates, quibusdam officia.
+          Neque quibusdam quas a quis porro? Molestias illo neque eum in
+          laborum.
+        </p>
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+
+    <!--Grid row-->
+    <div class="row wow fadeIn">
+      <!--Grid column-->
+      <div class="col-lg-4 col-md-12 my-4">
+        <img
+          src="https://images.unsplash.com/photo-1546241072-48010ad2862c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+          class="img-fluid"
+          alt=""
+        />
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-4 col-md-6 my-4">
+        <img
+          src="https://images.unsplash.com/photo-1484980972926-edee96e0960d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+          class="img-fluid"
+          alt=""
+        />
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-4 col-md-6 my-4">
+        <img
+          src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+          class="img-fluid"
+          alt=""
+        />
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </div>
+</main>
+<!--Main layout-->
+
+{% endblock content %}

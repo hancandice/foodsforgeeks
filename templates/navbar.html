@@ -1,0 +1,96 @@
+{% load cart_template_tags %}
+<!-- Navbar -->
+<nav
+  class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar"
+>
+  <div class="container">
+    <!-- Brand -->
+    <a class="navbar-brand waves-effect" href="{% url 'core:homepage' %}">
+      <strong class="blue-text">FoodsForGeeks</strong>
+    </a>
+    <!-- Collapse -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Left -->
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item active">
+          <a class="nav-link waves-effect" href="{% url 'core:homepage' %}"
+            >Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'core:checkout' %}"
+            >Checkout</a
+          >
+        </li> -->
+      </ul>
+
+      <!-- Right -->
+      <ul class="navbar-nav nav-flex-icons">
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link waves-effect">
+            <span class="badge blue z-depth-1 mr-1"> Welcome ! </span>
+            <span class="clearfix d-none d-sm-inline-block">
+              {{ user.username}}
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="{% url 'core:order-summary' %}"
+            class="nav-link waves-effect"
+          >
+            <span class="badge red z-depth-1 mr-1">
+              {{ request.user|cart_item_count }}</span
+            >
+            <i class="fas fa-shopping-cart"></i>
+            <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'account_logout' %}">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="clearfix d-none d-sm-inline-block"> Sign Out </span>
+          </a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'account_login' %}">
+            <i class="fas fa-sign-in-alt"></i>
+            <span class="clearfix d-none d-sm-inline-block"> Sign In </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'account_signup' %}">
+            <i class="fas fa-user-plus"></i>
+            <span class="clearfix d-none d-sm-inline-block"> Sign Up </span>
+          </a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'pybo:index' %}">
+            <span class="badge btn-green z-depth-1 mx-1">
+              Any question?
+            </span>
+            <span class="clearfix d-none d-sm-inline-block"> Q & A </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Navbar -->

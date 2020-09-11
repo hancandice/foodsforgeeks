@@ -1,0 +1,311 @@
+{% extends 'base.html' %} 
+{% load pybo_filter %} 
+{% block extra_head %}
+<style type="text/css">
+  .commentContent p {
+    margin-top: 0;
+    margin-bottom: 0 !important;
+  }
+</style>
+{% endblock extra_head %} 
+{% block content %}
+
+<div class="container my-3">
+  <h2 class="border-bottom py-2" style="display: flex; justify-content: space-between; align-items:center;">{{question.subject}}
+    <div
+    class="btn btn-success"
+    style="
+      border: 4px solid rgb(205, 219, 139);
+      cursor: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    "
+  >
+    <span>{{ question.voter.count }}</span>
+    <a 
+      href="#"
+      data-uri="{% url 'pybo:vote_question' question.id %}"
+      class="recommend {% if not user.is_authenticated %}disabled{% endif %}"
+      style="color: whitesmoke;"
+      ><i class="fas fa-thumbs-up fa-2x"></i
+    ></a>
+  </div>
+  </h2>
+  <div class="row my-3">
+    <div class="col-12">
+      <div class="card" style="background-color: #f7f7e9;">
+        <div class="card-body">
+          <div class="card-text">
+            {{question.content|mark}}
+          </div>
+          <div class="row justify-content-end p-2">
+            {% if question.modifyDate %}
+            <div class="badge-light badge p-2 text-left mx-2 mb-2">
+              <div class="mb-2">Edited at</div>
+              <div>{{ question.modifyDate }}</div>
+            </div>
+            {% endif %}
+            <div class="badge badge-dark p-2 text-left mb-2 mx-2">
+              <div class="mb-2">{{ question.author.username }}</div>
+              <div>{{question.createDate}}</div>
+            </div>
+          </div>
+          {% if request.user == question.author %}
+          <div class="mt-3">
+            <a
+              href="{% url 'pybo:question_modify' question.id %}"
+              class="btn btn-sm btn-elegant"
+              style="border: none;"
+              >Edit</a
+            >
+            <a
+              href="#"
+              class="delete btn btn-sm btn-elegant ml-2"
+              style="border: none;"
+              data-uri="{% url 'pybo:question_delete' question.id %}"
+              >Delete</a
+            >
+          </div>
+          {% endif %}
+        </div>
+        {% if question.comment_set.count > 0 %}
+        <div class="m-3">
+          {% for comment in question.comment_set.all %}
+          <a name="comment_{{ comment.id }}"></a>
+          <div
+            class="p-2 my-1 text-left"
+            style="
+              background-color: #cccec7;
+              border-radius: 0 10px 10px 10px;
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+            "
+          >
+            <span class="small commentContent"
+              >{{ comment.content|mark }}
+            </span>
+            <span class="small text-muted commentContent">
+              @ {{ comment.author }} / {{ comment.createDate }}
+            </span>
+          </div>
+          {% if request.user == comment.author %}
+          <div class="d-flex justify-content-end">
+            <div>
+              <a
+                href="{% url 'pybo:comment_modify_question' comment.id %}"
+                class="small btn btn-sm btn-elegant"
+                style="
+                  background-color: rgb(216, 223, 182);
+                  border: none;
+                  padding: 0px 0.5em;
+                "
+                ><small>Edit</small></a
+              >
+              <a
+                href="#"
+                class="small delete btn btn-sm btn-elegant ml-1"
+                style="
+                  background-color: rgb(216, 223, 182);
+                  border: none;
+                  padding: 0px 0.5em;
+                "
+                data-uri="{% url 'pybo:comment_delete_question' comment.id %}"
+                ><small>Delete</small></a
+              >
+            </div>
+          </div>
+          {% endif %} {% endfor %}
+        </div>
+        {% endif %} {% if user.is_authenticated %}
+        <div>
+          <a
+            href="{% url 'pybo:comment_create_question' question.id %}"
+            class="m-3 btn btn-sm btn-mdb-color"
+            style="background-color: rgb(216, 223, 182); border: none;"
+            ><small>Add Comment</small></a
+          >
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <h5 class="border-bottom my-3 py-2">Total answer: {{question.answer_set.count}}</h5>
+  {% for answer in question.answer_set.all %}
+  <a name="answer_{{answer.id}}"></a>
+  <div class="mt-4 mb-0" style="display: flex; justify-content: flex-end;">
+    <div
+    class="btn btn-amber btn-sm"
+    style="
+      border: 4px solid rgb(250, 219, 126);
+      cursor: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    "
+  >
+    <span>{{ answer.voter.count }}</span>
+    <a
+      href="#"
+      data-uri="{% url 'pybo:vote_answer' answer.id %}"
+      class="recommend {% if not user.is_authenticated %}disabled{% endif %}"
+      style="color: whitesmoke;"
+      ><i class="fas fa-thumbs-up fa-2x"></i
+    ></a>
+  </div>
+  </div>
+  <div class="row my-2" style="display: flex; justify-content: space-around;">
+    <div class="col-12">
+      <div class="card" style="background-color: #f7f7e9;">
+        <div class="card-body">
+          <div class="card-text">
+            {{answer.content|mark}}
+          </div>
+          <div class="row justify-content-end p-2">
+            {% if answer.modifyDate %}
+            <div class="badge badge-light p-2 text-left mx-2 mb-2">
+              <div class="mb-2">Edited at</div>
+              <div>{{ answer.modifyDate }}</div>
+            </div>
+            {% endif %}
+            <div class="badge badge-dark p-2 text-left mb-2 mx-2">
+              <div class="mb-2">{{ answer.author.username }}</div>
+              <div>{{answer.createDate}}</div>
+            </div>
+          </div>
+          {% if request.user == answer.author %}
+          <div class="mt-3">
+            <a
+              href="{% url 'pybo:answer_modify' answer.id %}"
+              class="btn btn-sm btn-elegant"
+              >Edit</a
+            >
+            <a
+              href="#"
+              class="delete btn btn-sm btn-elegant ml-2"
+              style="border: none;"
+              data-uri="{% url 'pybo:answer_delete' answer.id %}"
+              >Delete</a
+            >
+          </div>
+          {% endif %}
+        </div>
+        {% if answer.comment_set.count > 0 %}
+        <div class="m-3">
+          {% for comment in answer.comment_set.all %}
+          <a name="comment_{{ comment.id }}"></a>
+          <div
+            class="p-2 my-1 text-left"
+            style="
+              background-color: #cccec7;
+              border-radius: 0 10px 10px 10px;
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+            "
+          >
+            <span class="commentContent small"
+              >{{ comment.content|mark }}
+            </span>
+            <span class="small text-muted commentContent">
+              @ {{ comment.author }} / {{ comment.createDate }}
+            </span>
+          </div>
+          {% if request.user == comment.author %}
+          <div class="d-flex justify-content-end">
+            <div>
+              <a
+                href="{% url 'pybo:comment_modify_answer' comment.id %}"
+                class="small btn btn-sm btn-elegant"
+                style="
+                  background-color: rgb(216, 223, 182);
+                  border: none;
+                  padding: 0px 0.5em;
+                "
+                ><small>Edit</small></a
+              >
+              <a
+                href="#"
+                class="small delete btn btn-sm btn-elegant ml-1"
+                style="
+                  background-color: rgb(216, 223, 182);
+                  border: none;
+                  padding: 0px 0.5em;
+                "
+                data-uri="{% url 'pybo:comment_delete_answer' comment.id %}"
+                ><small>Delete</small></a
+              >
+            </div>
+          </div>
+          {% endif %} {% endfor %}
+        </div>
+        {% endif %} {% if user.is_authenticated %}
+        <div>
+          <a
+            href="{% url 'pybo:comment_create_answer' answer.id %}"
+            class="m-3 btn btn-sm btn-mdb-color"
+            style="background-color: rgb(216, 223, 182); border: none;"
+            ><small>Add Comment</small></a
+          >
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  <form
+    action="{% url 'pybo:answer_create' question.id %}"
+    method="post"
+    class="my-3"
+  >
+    {% csrf_token %} {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+      {% for field in form %} {% if field.errors %}
+      <strong>{{field.label}}</strong>
+      {{field.errors}} {% endif %} {% endfor %}
+    </div>
+    {% endif %}
+    <div class="form-group">
+      <textarea
+        {% if not user.is_authenticated %}disabled{% endif %}
+        name="content"
+        id="answerContent"
+        class="form-control"
+        rows="10"
+        placeholder="Write your answer here ✨"
+      ></textarea>
+    </div>
+    {% if user.is_authenticated %}<input
+      type="submit"
+      value="Submit Answer"
+      class="btn btn-mdb-color"
+    />
+    {% else %}
+    <a
+      href="{% url 'pybo:answer_create' question.id %}"
+      class="btn btn-info"
+      style="color: white;"
+      >Login to Answer</a
+    >
+    {% endif %}
+  </form>
+</div>
+{% endblock %} {% block script %}
+<script type="text/javascript">
+  $(document).ready(function () {
+    $(".delete").on("click", function () {
+      if (confirm("Do you want to delete this post?")) {
+        location.href = $(this).data("uri");
+      }
+    });
+    $(".recommend").on("click", function () {
+      if (confirm("Do you like this post?")) {
+        location.href = $(this).data("uri");
+      }
+    });
+  });
+</script>
+{% endblock %}

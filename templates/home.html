@@ -1,0 +1,431 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<!--Carousel Wrapper-->
+<div
+  id="carousel-example-1z"
+  class="carousel slide carousel-fade pt-4"
+  data-ride="carousel"
+>
+  <!--Indicators-->
+  <ol class="carousel-indicators">
+    <li
+      data-target="#carousel-example-1z"
+      data-slide-to="0"
+      class="active"
+    ></li>
+    <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+    <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+  </ol>
+  <!--/.Indicators-->
+
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+    <!--First slide-->
+    <div class="carousel-item active">
+      <div
+        class="view"
+        style="
+          background-image: url(https://images.unsplash.com/photo-1550388342-c75d3a99540d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1208&q=80);
+          background-repeat: no-repeat;
+          background-size: cover;
+        "
+      >
+        <!-- Mask & flexbox options-->
+        <div
+          class="mask rgba-black-strong d-flex justify-content-center align-items-center"
+        >
+          <!-- Content -->
+          <div class="text-center white-text mx-5 wow fadeIn">
+            <h1 class="mb-4">
+              <strong>Foods for Geeks</strong>
+            </h1>
+
+            <p>
+              <strong>Best & delicious food for programmers</strong>
+            </p>
+
+            <p class="mb-4 d-none d-md-block">
+              <strong
+                >The best food to increase your coding productivity. Simply
+                order online and enjoy the food of the finest restaurants in
+                your home.</strong
+              >
+            </p>
+
+            <a href="#" class="btn btn-outline-white btn-lg"
+              >Don't cook&nbsp&nbspJust click&nbsp&nbsp
+              <i class="fas fa-utensils"></i>
+            </a>
+          </div>
+          <!-- Content -->
+        </div>
+        <!-- Mask & flexbox options-->
+      </div>
+    </div>
+    <!--/First slide-->
+
+    <!--Second slide-->
+    <div class="carousel-item">
+      <div
+        class="view"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+          background-repeat: no-repeat;
+          background-size: cover;
+        "
+      >
+        <!-- Mask & flexbox options-->
+        <div
+          class="mask rgba-black-strong d-flex justify-content-center align-items-center"
+        >
+          <!-- Content -->
+          <div class="text-center white-text mx-5 wow fadeIn">
+            <h1 class="mb-4">
+              <strong>Foods for Geeks</strong>
+            </h1>
+
+            <p>
+              <strong>Best & delicious food for programmers</strong>
+            </p>
+
+            <p class="mb-4 d-none d-md-block">
+              <strong
+                >The best food to increase your coding productivity. Simply
+                order online and enjoy the food of the finest restaurants in
+                your home.</strong
+              >
+            </p>
+
+            <a href="#" class="btn btn-outline-white btn-lg"
+              >Don't cook&nbsp&nbspJust click&nbsp&nbsp
+              <i class="fas fa-utensils"></i>
+            </a>
+          </div>
+          <!-- Content -->
+        </div>
+        <!-- Mask & flexbox options-->
+      </div>
+    </div>
+    <!--/Second slide-->
+
+    <!--Third slide-->
+    <div class="carousel-item">
+      <div
+        class="view"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+          background-repeat: no-repeat;
+          background-size: cover;
+        "
+      >
+        <!-- Mask & flexbox options-->
+        <div
+          class="mask rgba-black-strong d-flex justify-content-center align-items-center"
+        >
+          <!-- Content -->
+          <div class="text-center white-text mx-5 wow fadeIn">
+            <h1 class="mb-4">
+              <strong>Foods for Geeks</strong>
+            </h1>
+
+            <p>
+              <strong>Best & delicious food for programmers</strong>
+            </p>
+
+            <p class="mb-4 d-none d-md-block">
+              <strong
+                >The best food to increase your coding productivity. Simply
+                order online and enjoy the food of the finest restaurants in
+                your home.</strong
+              >
+            </p>
+
+            <a href="#" class="btn btn-outline-white btn-lg"
+              >Don't cook&nbsp&nbspJust click&nbsp&nbsp
+              <i class="fas fa-utensils"></i>
+            </a>
+          </div>
+          <!-- Content -->
+        </div>
+        <!-- Mask & flexbox options-->
+      </div>
+    </div>
+    <!--/Third slide-->
+  </div>
+  <!--/.Slides-->
+
+  <!--Controls-->
+  <a
+    class="carousel-control-prev"
+    href="#carousel-example-1z"
+    role="button"
+    data-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a
+    class="carousel-control-next"
+    href="#carousel-example-1z"
+    role="button"
+    data-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <!--/.Controls-->
+</div>
+<!--/.Carousel Wrapper-->
+
+<!--Main layout-->
+<main>
+  <div class="container">
+    <!--Navbar-->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5"
+    >
+      <!-- Navbar brand -->
+      <span class="navbar-brand">Categories:</span>
+
+      <!-- Collapse button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#basicExampleNav"
+        aria-controls="basicExampleNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="basicExampleNav">
+        <!-- Links -->
+        <div class="navbar-nav mr-auto">
+          <a class="sort nav-item {% if sort == "all" %} active {% endif %}" data-filter="all" href="#">
+            <span class="nav-link">All
+              <span class="sr-only">(current)</span>
+            </span>
+          </a>
+          <a class="sort nav-item {% if sort == "starters" %} active {% endif %}" data-filter="starters" href="#">
+            <span class="nav-link">Starters</span>
+          </a>
+          <a class="sort nav-item {% if sort == "main-dishes" %} active {% endif %}" data-filter="main-dishes" href="#">
+            <span class="nav-link">Main dishes</span>
+          </a>
+          <a class="sort nav-item {% if sort == "desserts" %} active {% endif %}" data-filter="desserts" href="#">
+            <span class="nav-link">Desserts</span>
+          </a>
+          <a class="sort nav-item {% if sort == "drinks" %} active {% endif %}" data-filter="drinks" href="#">
+            <span class="nav-link">Drinks</span>
+          </a>
+        </div>
+        <!-- Links -->
+
+        <div class="form-inline float-right">
+          <button
+              class="btn-floating btn-sm btn-mdb-color"
+              type="button"
+              id="btnSearch"
+              style="border: none;"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          <div class="md-form my-0">
+            <input
+              class="form-control kw ml-2"
+              type="text"
+              value="{{ kw|default_if_none:'' }}"
+              placeholder="Search"
+              aria-label="Search"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Collapsible content -->
+    </nav>
+    <!--/.Navbar-->
+
+    <!--Section: Products v.3-->
+    <section class="text-center mb-4">
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+        {% if page_obj %}
+        {% for item in page_obj %}
+        <div class="col-lg-3 col-md-6 mb-4">
+          <!--Card-->
+          <div class="card">
+            <!--Card image-->
+            <div class="view overlay">
+              {% if item.image %}
+              <img src="{{ item.image.url }}" class="card-img-top" alt="" />
+              {% elif not item.image and item.imgsrc %}
+              <img src="{{ item.imgsrc }}" class="card-img-top" alt="" />
+              {% else %} 
+              {% endif %}
+              <a href="{{ item.get_absolute_url }}">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <!--Card image-->
+
+            <!--Card content-->
+            <div class="card-body text-center">
+              <!--Category & Title-->
+              <a href="" class="grey-text">
+                <h5> {{ item.get_category_display }} </h5>
+              </a>
+              <h5>
+                <strong>
+                  <a href="{{ item.get_absolute_url }}" class="dark-grey-text"
+                    >{{ item.title }} 
+                    {% if item.discount_price %}
+                    <span
+                      class="badge badge-pill danger-color-dark text-uppercase"
+                    >
+                      sale
+                    </span>
+                    {% endif %} 
+                    {% if item.label %}
+                    <span class="badge badge-pill bg-dark">
+                       {{ item.get_label_display }} 
+                    </span>
+                    {% endif %}
+                  </a>
+                </strong>
+              </h5>
+              <h4 class="font-weight-bold blue-text">
+                <strong
+                  >$ {% if item.discount_price %} 
+                  {{ item.discount_price }} 
+                  {% else %} 
+                  {{ item.price }} 
+                  {% endif %}
+                </strong>
+              </h4>
+            </div>
+            <!--Card content-->
+          </div>
+          <!--Card-->
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="col-12">
+          <!--Card-->
+          <div class="card">
+            <!--Card image-->
+            <div class="view overlay">
+              <img src="https://images.unsplash.com/photo-1531928351158-2f736078e0a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="card-img-top" alt="" />
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <!--Card image-->
+
+            <!--Card content-->
+            <div class="card-body text-center">
+              <h4 class="font-weight-bold dark-grey-text">
+                No matching results found
+              </h4>
+            </div>
+            <!--Card content-->
+          </div>
+          <!--Card-->
+        </div>
+        {% endif %}
+      </div>
+      <!--Grid row-->
+    </section>
+    <!--Section: Products v.3-->
+    <!--Pagination-->
+    <nav class="d-flex justify-content-center wow fadeIn">
+      <ul class="pagination pg-blue">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a
+            class="page-link"
+            data-page="{{ page_obj.previous_page_number }}"
+            href="#"
+            aria-label="Previous"
+          >
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        {% endif %} 
+        {% for pageNumber in page_obj.paginator.page_range %} 
+        {% if pageNumber >= page_obj.number|add:-5 and pageNumber <= page_obj.number|add:5 %} 
+        {% if pageNumber == page_obj.number %}
+        <li class="page-item active">
+          <a class="page-link" data-page="{{ pageNumber }}" href="#"
+            >{{ page_obj.number }}
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        {% else %}
+        <li class="page-item">
+          <a class="page-link" data-page="{{ pageNumber }}" href="#"
+            >{{ pageNumber }}
+          </a>
+        </li>
+        {% endif %} 
+        {% endif %} 
+        {% endfor %} 
+        {% if page_obj.has_next %}
+        <li class="page-item">
+          <a
+            class="page-link"
+            data-page="{{ page_obj.next_page_number }}"
+            href="#"
+            aria-label="Next"
+          >
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</main>
+<!--Main layout-->
+
+<form id="searchForm" method="get" action="{% url 'core:homepage' %}">
+  <input type="hidden" id="kw" name="kw" value="{{ kw|default_if_none:'' }}" />
+  <input type="hidden" id="page" name="page" value="{{ page }}" />
+  <input type="hidden" name="sort" id="sort" value="{{ sort }}" />
+</form>
+
+{% endblock content %} 
+{% block script %}
+<script type="text/javascript">
+  $(document).ready(function () {
+    $(".page-link").on("click", function () {
+      $("#page").val($(this).data("page"));
+      $("#searchForm").submit();
+    });
+
+    $("#btnSearch").on("click", function () {
+      $("#kw").val($(".kw").val());
+      $("#page").val(1); // 검색버튼을 클릭할 경우 1페이지부터 조회한다.
+      $("#searchForm").submit();
+    });
+
+    $(".kw").on("keypress", function(e) {
+      if(e.which == 13) {
+        $("#kw").val($(".kw").val());
+        $("#page").val(1); 
+        $("#searchForm").submit();
+      }
+    });
+
+    $(".sort").on("click", function() {
+      $("#sort").val($(this).data("filter"));
+      $("#page").val(1);
+      $("#searchForm").submit();
+    });
+  });
+</script>
+{% endblock script %}
