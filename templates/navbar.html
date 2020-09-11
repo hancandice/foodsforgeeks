@@ -62,6 +62,15 @@
           </a>
         </li>
         <li class="nav-item">
+          <a
+            href="{% url 'core:request-refund' %}"
+            class="nav-link waves-effect"
+          >
+          <i class="fas fa-concierge-bell"></i>
+            <span class="clearfix d-none d-sm-inline-block"> Refund </span>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link waves-effect" href="{% url 'account_logout' %}">
             <i class="fas fa-sign-out-alt"></i>
             <span class="clearfix d-none d-sm-inline-block"> Sign Out </span>
